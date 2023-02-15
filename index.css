@@ -6,7 +6,7 @@ body {
   padding: 10px;
 }
 
-#opaque-filter {
+/* #opaque-filter {
     position: fixed;
     top: 0px;
     left: 250px;
@@ -21,7 +21,7 @@ body {
 }
 * html #opaque-filter {
     position: absolute;
-}
+} */
 
 #header-nav-block {
   background-color: rgb(28, 6, 77);
@@ -45,8 +45,8 @@ body {
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
-  /* background-color: rgb(22, 3, 61); */
-  background-color: rgb(28, 6, 77);
+  background-color: rgb(22, 3, 61);
+  /* background-color: rgb(28, 6, 77); */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
@@ -65,7 +65,7 @@ body {
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
   color: #f1f1f1;
-  font-size:28px;
+  font-size: 28px;
 }
 
 /* Position and style the close button (top right corner) */
@@ -78,7 +78,7 @@ body {
 }
 
 .sidenav .closebtn:hover {
-    font-size: 38px;
+  font-size: 38px;
 }
 
 @media screen and (max-height: 450px) {
@@ -115,4 +115,25 @@ img {
   border-style: solid;
   max-width: 560px;
   margin: auto;
+  background-color: rgb(22, 3, 61);
+  padding-right: 6px;
+}
+
+#projectExpandButton {
+  cursor: pointer;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+#project-list {
+  display: none;
+}
+
+#portfolio-grid {
+  display: grid;
+  max-width: 560px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: auto;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
