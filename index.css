@@ -23,8 +23,19 @@ body {
     position: absolute;
 } */
 
+
+/* UNIVERSAL CSS RULES FOR THE SIDENAV & HEADER BLOCKS */
+
+header {
+  border-style: outset;
+  max-width: 900px;
+  margin: auto;
+  background-color: rgb(27, 10, 61);
+  border-color: blue;
+}
+
 #header-nav-block {
-  background-color: rgb(28, 6, 77);
+  background-color: rgb(28, 6, 77, 0);
   position: fixed;
   padding-top: 5px;
   top: 0;
@@ -46,10 +57,12 @@ body {
   top: 0; /* Stay at the top */
   left: 0;
   background-color: rgb(22, 3, 61);
-  /* background-color: rgb(28, 6, 77); */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  border-right: none;
+  border-color: #ababab;
+  border-width: 3px;
 }
 
 /* The navigation menu links */
@@ -90,9 +103,27 @@ body {
   }
 }
 
+
+/* CSS RULES FOR HOMEPAGE */
+
+#my-info {
+  max-width: 800px;
+  margin: auto;
+}
+
+#toplink-block {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#toplink-block a {
+  color:aqua;
+}
+
 img {
   max-width: 280px;
   height: auto;
+  margin-top: 10px;
 }
 
 .intro-block {
@@ -129,6 +160,13 @@ img {
   display: none;
 }
 
+
+/* CSS RULES SPECIFIC TO THE PORTFOLIO PAGE */
+
+#portfolio-header {
+  max-width: 560px;
+}
+
 #portfolio-grid {
   display: grid;
   max-width: 560px;
@@ -136,4 +174,22 @@ img {
   margin: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#portfolio-grid img {
+  width: 80%;
+}
+
+.project-card {
+  border-style: solid;
+  border-color: blue;
+  background-color: rgb(22, 3, 61);
+  transition: 0.2s;
+}
+
+.project-card:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
 }

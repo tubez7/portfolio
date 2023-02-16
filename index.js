@@ -7,6 +7,7 @@ const expandProject = document.getElementById("projectExpandButton");
 
 function openNav() {
   sideNav.style.width = "250px";
+  sideNav.style.borderRight = "solid";
   main.style.marginLeft = "250px";
   main.style.transition = "margin-left 0.5s";
   // main.forEach((elem) => {
@@ -19,6 +20,7 @@ function openNav() {
 
 function closeNav() {
   sideNav.style.width = "0";
+  sideNav.style.borderRight = "none";
   main.style.marginLeft = "0px";
   main.style.transition = "margin-left 0.5s";
   // main.forEach((elem) => {
@@ -30,9 +32,9 @@ function closeNav() {
 }
 
 function displayProjects() {
-  if (projectList.style.display !== "none") {
+  if (expandProject.innerHTML === "Click to minimise...") {
     projectList.style.display = "none";
-    expandProject.innerHTML = "Click to see course project details...";
+    expandProject.innerHTML = "Click to expand course project details...";
   } else {
     projectList.style.display = "block";
     expandProject.innerHTML = "Click to minimise...";
