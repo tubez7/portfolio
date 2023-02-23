@@ -4,25 +4,28 @@ body {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  min-height: 100vh;
 }
 
-/* #opaque-filter {
+#opaque-filter {
     position: fixed;
     top: 0px;
-    left: 250px;
+    left: 0px;
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: 1;
     visibility:hidden;
     background-color: black;
     filter: alpha(opacity=30);
-    opacity: 0.6;
-    transition: left 0.5s;
+    opacity: 0.4;
 }
 * html #opaque-filter {
     position: absolute;
-} */
+}
 
+/* * body #opaque-filter {
+  position: absolute;
+} */
 
 /* UNIVERSAL CSS RULES FOR THE SIDENAV & HEADER BLOCKS */
 
@@ -53,7 +56,7 @@ header {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 3; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: rgb(22, 3, 61);
@@ -103,7 +106,6 @@ header {
   }
 }
 
-
 /* CSS RULES FOR HOMEPAGE */
 
 #my-info {
@@ -117,7 +119,7 @@ header {
 }
 
 #toplink-block a {
-  color:aqua;
+  color: aqua;
 }
 
 img {
@@ -160,7 +162,6 @@ img {
   display: none;
 }
 
-
 /* CSS RULES SPECIFIC TO THE PORTFOLIO PAGE */
 
 #portfolio-header {
@@ -168,8 +169,9 @@ img {
 }
 
 #portfolio-grid {
+  position: relative;
   display: grid;
-  max-width: 560px;
+  max-width: 540px;
   grid-template-columns: repeat(2, 1fr);
   margin: auto;
   grid-column-gap: 20px;
@@ -182,14 +184,44 @@ img {
   width: 80%;
 }
 
-.project-card {
+#project-expand-card {
+  position: absolute;
+  /* display: none; */
+  visibility: hidden;
+  /* left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px; */
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 2;
+  /* max-width: 560px; */
+  max-width: 0;
+  /* width: 0; */
+  /* height: 100%; */
+  max-height: 0;
+  border-style: solid;
+  border-color: aqua;
+  background-color: rgb(22, 3, 61);
+  text-align: left;
+  padding: 10px;
+}
+
+#project-expand-card > * {
+  visibility: hidden;
+}
+
+.project-cards {
   border-style: solid;
   border-color: blue;
   background-color: rgb(22, 3, 61);
   transition: 0.2s;
 }
 
-.project-card:hover {
-  transform: scale(1.1);
-  transition: 0.2s;
+@media (hover: hover) {
+  .project-cards:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
 }

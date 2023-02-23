@@ -4,11 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio site for Richard John Black, a Junior Software Developer from Birmingham, UK."
+    />
     <title>Portfolio</title>
     <link rel="stylesheet" href="index.css" />
     <script src="./index.js" defer></script>
   </head>
-  <body>
+  <body onclick="closeDisplay(event)">
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
@@ -18,6 +22,9 @@
       <a href="./links.html">Links</a>
       <a href="./contact.html">Contact</a>
     </div>
+
+    <div id="opaque-filter"></div>
+
     <div id="main">
       <nav id="header-nav-block">
         <span id="hamburger" onclick="openNav()">&#9776; navigation</span>
@@ -26,22 +33,30 @@
         <h1 class="headers">Portfolio</h1>
       </header>
       <div id="portfolio-grid">
-        <div class="project-card">
+        <div id="project-expand-card">
+          <h3>NAME OF PROJECT</h3>
+          <h4>PROJECT URL</h4>
+          <h4>GITHUB URL</h4>
+          <img src="./images/profile.jpg" alt="project image" id="project-image">
+          <p>Some descriptive text about the portfolio project. For example, I built a mobile first designed front-end architecture that acts as a news app to serve news articles via integration with the back-end project news API. Built using React, CSS HTML5, and Material UI.</p>
+          <p id="project-close-button">Close &times;</p>
+        </div>
+        <div class="project-cards">
           <h3>Link-Four</h3>
           <img src="./images/profile.jpg" alt="linkfour-image" />
           <p>Click to expand...</p>
         </div>
-        <div class="project-card">
+        <div class="project-cards">
           <h3>Tremolo</h3>
           <img src="./images/profile.jpg" alt="tremolo-image" />
           <p>Click to expand...</p>
         </div>
-        <div class="project-card">
+        <div class="project-cards">
           <h3>News App</h3>
           <img src="./images/profile.jpg" alt="news app-image" />
           <p>Click to expand...</p>
         </div>
-        <div class="project-card">
+        <div class="project-cards">
           <h3>News API</h3>
           <img src="./images/profile.jpg" alt="news api-image" />
           <p>Click to expand...</p>
