@@ -4,27 +4,41 @@ body {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  min-height: 100vh;
 }
 
-/* #opaque-filter {
+#opaque-filter {
     position: fixed;
     top: 0px;
-    left: 250px;
+    left: 0px;
     width: 100%;
     height: 100%;
-    z-index: 1000;
+    z-index: 1;
     visibility:hidden;
     background-color: black;
     filter: alpha(opacity=30);
-    opacity: 0.6;
-    transition: left 0.5s;
+    opacity: 0.4;
 }
 * html #opaque-filter {
     position: absolute;
+}
+
+/* * body #opaque-filter {
+  position: absolute;
 } */
 
+/* UNIVERSAL CSS RULES FOR THE SIDENAV & HEADER BLOCKS */
+
+header {
+  border-style: outset;
+  max-width: 900px;
+  margin: auto;
+  background-color: rgb(27, 10, 61);
+  border-color: blue;
+}
+
 #header-nav-block {
-  background-color: rgb(28, 6, 77);
+  background-color: rgb(28, 6, 77, 0);
   position: fixed;
   padding-top: 5px;
   top: 0;
@@ -35,21 +49,25 @@ body {
   cursor: pointer;
   font-size: 20px;
   margin: 10px;
+  visibility: visible;
 }
 
 /* The side navigation menu */
 .sidenav {
-  height: 100%; /* 100% Full-height */
+  height: 100%; /*100% Full-height/*
+  /* height: 100vh; */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 3; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: rgb(22, 3, 61);
-  /* background-color: rgb(28, 6, 77); */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  border-right: none;
+  border-color: #ababab;
+  border-width: 3px;
 }
 
 /* The navigation menu links */
@@ -60,6 +78,10 @@ body {
   color: #ababab;
   display: block;
   transition: 0.3s;
+}
+
+.sidenav a:visited {
+  color: #ababab;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -90,13 +112,38 @@ body {
   }
 }
 
-img {
-  max-width: 280px;
-  height: auto;
+/* CSS RULES FOR HOMEPAGE */
+
+#my-info {
+  max-width: 800px;
+  margin: auto;
 }
 
-.intro-block {
+#toplink-block {
   text-align: center;
+  margin-top: 20px;
+  clear: right;
+}
+
+a {
+  color: aqua;
+}
+
+a:visited {
+  color:aquamarine;
+}
+
+#profile-image {
+  float: left;
+  max-width: 220px;
+  height: auto;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 30px;;
+  border-radius: 25% 10%;
+  border-style: solid;
+  border-width: 3px;
+  border-color: blue;
 }
 
 .headers {
@@ -104,7 +151,8 @@ img {
 }
 
 #background-header {
-  margin-top: 50px;
+  text-align: justify;
+  clear: left;
 }
 
 #background {
@@ -112,11 +160,24 @@ img {
 }
 
 #experience-list {
+  clear: left;
+  float: right;
   border-style: solid;
-  max-width: 560px;
-  margin: auto;
+  border-color: blue;;
+  /* max-width: 560px; */
+  max-width: 400px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+  /* margin: auto; */
   background-color: rgb(22, 3, 61);
-  padding-right: 6px;
+  padding-right: 10px;
+  border-radius: 5%;
+}
+
+#experience-list::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 #projectExpandButton {
@@ -129,11 +190,111 @@ img {
   display: none;
 }
 
+/* CSS RULES SPECIFIC TO THE PORTFOLIO PAGE */
+
+#portfolio-header {
+  max-width: 560px;
+}
+
 #portfolio-grid {
+  position: relative;
   display: grid;
   max-width: 560px;
   grid-template-columns: repeat(2, 1fr);
   margin: auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  text-align: center;
+  margin-top: 10px;
+  min-height: 80vh;
 }
+
+#portfolio-grid img {
+  width: 80%;
+}
+
+.project-cards {
+  border-style: solid;
+  border-color: blue;
+  background-color: rgb(22, 3, 61);
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 10%;
+}
+
+@media (hover: hover) {
+  .project-cards:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+  }
+}
+
+.thumbnails {
+  border-radius: 25% 10%;
+  border-style: solid;
+  border-color: blue;
+}
+
+@keyframes drop {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes lift {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 0%;    
+  }
+}
+
+
+#project-expand-card {
+  visibility: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 0;
+  max-width: 0;
+  max-height: 0;
+  border-style: solid;
+  border-color: blue;
+  background-color: rgb(22, 3, 61);
+  text-align: left;
+  padding: 10px;
+}
+
+#project-expand-card::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+#project-image {
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  max-width: 35%;
+  border-radius: 25% 10%;
+  border-style: solid;
+  border-color: blue;
+}
+
+#project-expand-card > * {
+  visibility: hidden;
+}
+
+#project-close-button {
+  display: block;
+  text-align: center;
+  clear: left;
+  /* font-size: larger; */
+}
+
