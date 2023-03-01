@@ -11,7 +11,18 @@
     <title>Contact</title>
     <link rel="stylesheet" href="index.css" />
     <script src="./index.js" defer></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("s3ArIuTGr2qWNR5hi");
+      })();
+    </script>
   </head>
+
   <body>
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
@@ -22,11 +33,108 @@
       <a href="./about.html">About</a>
       <a href="./links.html">Links</a>
     </div>
-    <main>
+
+    <div id="opaque-filter"></div>
+
+    <div id="main">
       <nav id="header-nav-block">
         <span id="hamburger" onclick="openNav()">&#9776; navigation</span>
       </nav>
-      <p>Contact details</p>
-    </main>
+      <header id="contact-header">
+        <h1 class="headers">Contact</h1>
+      </header>
+      <div id="email-response-popup">
+        <p id="response-msg">Test message</p>
+        <a href="javascript:void(0)" id="popup-close-button" onclick="closePopup()"
+              >Close &times;</a>
+      </div>
+      <div id="form-block">
+        <form id="contact-form">
+          <fieldset>
+            <p>
+              Send me a message
+              <br />
+              (* Denotes required field)
+            </p>
+            <label for="first-name">First name*</label>
+            <br />
+            <p id="name-message">
+              This is a required field. Please enter your name.
+            </p>
+            <input
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Your name..."
+              oninput="setFirstName(event)"
+            />
+            <br />
+            <label for="surname">Surname*</label>
+            <br />
+            <p id="surname-message">
+              This is a required field. Please enter your surname.
+            </p>
+            <input
+              type="text"
+              id="surname"
+              name="surname"
+              placeholder="Your surname..."
+              oninput="setSurname(event)"
+            />
+            <br />
+            <label for="email">Email (optional)</label>
+            <br />
+            <p id="email-message">
+              Please enter a correctly formatted email address or leave this
+              field blank
+            </p>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email address..."
+              onblur="validateEmail(event)"
+              oninput="setEmail(event)"
+            />
+            <br />
+            <label for="message-box">Your message*</label>
+            <br />
+            <p id="msg-message">
+              This is a required field. Please enter your message.
+            </p>
+            <textarea
+              id="message-box"
+              name="contact"
+              form="contact"
+              placeholder="Your message..."
+              rows="4"
+              oninput="setMsg(event)"
+            ></textarea>
+            <br />
+            <button id="submit-button" onclick="handleSend(event)" disabled>
+              Send
+            </button>
+          </fieldset>
+        </form>
+        <h2>Contact me!</h2>
+        <address>
+          <p>
+            email:
+            <a href="mailto:richardjblack7@gmail.com"
+              >richardjblack7@gmail.com</a
+            >
+          </p>
+        </address>
+        <p>
+          I'm gonna type some stuff in here. Fill it out to make the page look
+          better. It doesn't have to be anything particularly good or
+          insightful. Just some waffle.
+        </p>
+        <p>
+          If you wish to contact me regarding any potential professional enquiries please don't hesitate to contact me at the email address provided. Alternatively, you can send me a message via the contact form on this page but be sure to include your email address if you need me to reply to you! Feedback on the site or any of my other projects is very much appreciated. Anything that helps me to improve my skills and the code that I write will be eagerly lapped up, so thank you in advance!
+        </p>
+        <p>PS - Suck my balls!</p>
+      </div>
+    </div>
   </body>
 </html>
