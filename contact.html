@@ -34,7 +34,7 @@
       <a href="./links.html">Links</a>
     </div>
 
-    <div id="opaque-filter"></div>
+    <div id="opaque-filter" onclick="closePopup()"></div>
 
     <div id="main">
       <nav id="header-nav-block">
@@ -44,9 +44,21 @@
         <h1 class="headers">Contact</h1>
       </header>
       <div id="email-response-popup">
+        <span id="response-header">
+          <h3 id="email-response-header">Response Header</h3>
+          <img
+            src=""
+            alt="icon"
+            id="email-response-icon"
+          />
+        </span>
         <p id="response-msg">Test message</p>
-        <a href="javascript:void(0)" id="popup-close-button" onclick="closePopup()"
-              >Close &times;</a>
+        <a
+          href="javascript:void(0)"
+          id="popup-close-button"
+          onclick="closePopup()"
+          >Close &times;</a
+        >
       </div>
       <div id="form-block">
         <form id="contact-form">
@@ -93,7 +105,6 @@
               id="email"
               name="email"
               placeholder="Your email address..."
-              onblur="validateEmail(event)"
               oninput="setEmail(event)"
             />
             <br />
@@ -107,7 +118,7 @@
               name="contact"
               form="contact"
               placeholder="Your message..."
-              rows="4"
+              rows="8"
               oninput="setMsg(event)"
             ></textarea>
             <br />
@@ -131,9 +142,16 @@
           insightful. Just some waffle.
         </p>
         <p>
-          If you wish to contact me regarding any potential professional enquiries please don't hesitate to contact me at the email address provided. Alternatively, you can send me a message via the contact form on this page but be sure to include your email address if you need me to reply to you! Feedback on the site or any of my other projects is very much appreciated. Anything that helps me to improve my skills and the code that I write will be eagerly lapped up, so thank you in advance!
+          If you wish to contact me regarding any potential professional
+          enquiries please don't hesitate to contact me at the email address
+          provided. Alternatively, you can send me a message via the contact
+          form on this page but be sure to include your email address if you
+          need me to reply to you! Feedback on the site or any of my other
+          projects is very much appreciated. Anything that helps me to improve
+          my skills and the code that I write will be eagerly lapped up, so
+          thank you in advance!
         </p>
-        <p>PS - Suck my balls!</p>
+        <p>PS - Something something</p>
       </div>
     </div>
   </body>
