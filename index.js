@@ -62,6 +62,13 @@ function showProjectCard(parentDiv) {
   title.innerText = parentDiv.querySelector("h3").innerText.toUpperCase();
   image.src = parentDiv.querySelector("img").src;
 
+  console.log(
+    title.innerHTML,
+    "inner HTML of title",
+    title.innerText,
+    "inner text of title"
+  );
+
   if (title.innerHTML === "LINK-FOUR") {
     url.innerText = "link-four.netlify.app";
     url.href = "https://link-four.netlify.app";
@@ -70,15 +77,15 @@ function showProjectCard(parentDiv) {
     imageLink.href = url.href;
     description.innerText =
       "This Progressive Web App was built as a personal learning project to practise and consolidate my knowledge of building apps in React, experiment with some new technologies, as well as practising UI/UX design principles and generally building upon my existing knowledge of JavaScript. I hope to incorporate a player versus AI mode, an online PvP mode, game animations, and increased user customisation options among several other features in future updates.";
-  } else if (title.innerText === "TREMOLO") {
+  } else if (title.innerHTML === "TREMOLO") {
     url.innerText = "tremolo-project.netlify.app";
     url.href = "https://tremolo-project.netlify.app";
     github.innerHTML = "https://github.com/<wbr/>Mrs-DJ/<wbr/>tremolo";
     github.href = "https://github.com/Mrs-DJ/tremolo";
     imageLink.href = url.href;
     description.innerText =
-      "For the Northcoders bootcamp final project phase, as part of a 5 person team I created an app that enables musicians to network via geolocation and post classified ads for collaborating with each other.  The front-end architecture was built using Svelte, hosted as a Progressive Web Application, and integrated with Firebase for the database and user authentication implementation.";
-  } else if (title.innerText === "NEWS APP") {
+      "For the Northcoders bootcamp final project phase, as part of a 5-person team I created an app that enables musicians to network via geolocation and post classified ads for collaborating with each other.  The front-end architecture was built using Svelte, hosted as a Progressive Web Application, and integrated with Firebase for the database and user authentication implementation.";
+  } else if (title.innerHTML === "NEWS APP") {
     url.innerText = "richard-nc-news.netlify.app";
     url.href = "https://richard-nc-news.netlify.app";
     github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>nc-news";
@@ -93,7 +100,7 @@ function showProjectCard(parentDiv) {
     github.href = "https://github.com/tubez7/backend-nc-news";
     imageLink.href = url.href;
     description.innerText =
-      "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express and utilising full TDD incorporating the Jest library.";
+      "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising TDD incorporating the Jest library.";
   }
 
   project.style.visibility = "visible";
@@ -153,12 +160,13 @@ function closeProjectCard(clickedElement) {
 function closeDisplay(e) {
   const cardsChildren = [...document.querySelectorAll("div.project-cards *")];
   const cardsLinks = projectCards.concat(cardsChildren);
-  const projectElements = [project, ...project.children];
+  const projectChildren = [
+    ...document.querySelectorAll("#project-expand-card *"),
+  ];
+  const projectElements = [project, ...projectChildren];
   const safeElements = cardsLinks.concat(projectElements);
   const closeBtn = document.getElementById("project-close-button");
   const clickedElement = e.target;
-
-  // console.log(clickedElement, "was clicked");
 
   if (!safeElements.includes(clickedElement) || clickedElement === closeBtn) {
     closeProjectCard(clickedElement);
@@ -176,7 +184,6 @@ let validFirstName = false;
 let validSurname = false;
 let validEmail = true;
 let validMsg = false;
-
 
 function setFirstName(e) {
   const nameMsg = document.getElementById("name-message");
@@ -215,19 +222,15 @@ function setSurname(e) {
 }
 
 function setEmail(e) {
-  email = e.target.value;
-  disabled();
-}
-
-function validateEmail(e) {
   const emailMsg = document.getElementById("email-message");
   const emailInput = document.getElementById("email");
+  email = e.target.value;
 
-  if (e.target.value.length < 1) {
+  if (email.length < 1) {
     validEmail = true;
     emailInput.style.borderColor = "blue";
     emailMsg.style.display = "none";
-  } else if (!regex.test(e.target.value)) {
+  } else if (!regex.test(email)) {
     validEmail = false;
     emailMsg.style.display = "block";
     emailInput.style.borderColor = "red";
@@ -236,11 +239,14 @@ function validateEmail(e) {
     emailInput.style.borderColor = "blue";
     emailMsg.style.display = "none";
   }
+
+  disabled();
 }
+
+const messageInput = document.getElementById("message-box");
 
 function setMsg(e) {
   const messageMsg = document.getElementById("msg-message");
-  const messageInput = document.getElementById("message-box");
 
   message = e.target.value;
   validMsg = message.length > 0 ? true : false;
@@ -255,9 +261,9 @@ function setMsg(e) {
 
   disabled();
 }
+const submit = document.getElementById("submit-button");
 
 function disabled() {
-  const submit = document.getElementById("submit-button");
 
   if (!validFirstName || !validSurname || !validMsg || !validEmail) {
     submit.disabled = true;
@@ -276,7 +282,10 @@ function handleSend(e) {
     email,
     message,
   };
+  const responseHeader = document.getElementById("email-response-header");
   const emailResponse = document.getElementById("response-msg");
+  const icon = document.getElementById("email-response-icon");
+
   emailjs
     .send(
       "service_qdkojyi",
@@ -286,15 +295,29 @@ function handleSend(e) {
     )
     .then(() => {
       popup.style.display = "block";
-      emailResponse.innerText = "Success! Your message has been sent!";
+      responseHeader.innerText = "Success!";
+      emailResponse.innerText = "Your message has been sent.";
+      icon.src = "./images/icons/icons8-checkmark-48.png";
+      icon.alt = "green tick icon";
     })
     .catch(() => {
       popup.style.display = "block";
-      emailResponse.innerText = "Oh dear! There was a problem sending your message. Please try again later or contact me directly via email.";
+      responseHeader.innerText = "Error!";
+      emailResponse.innerText =
+        "Oh dear! There was a problem sending your message. Please try again later or contact me directly via email.";
+      icon.src = "./images/icons/icons8-cancel-48.png";
+      icon.alt = "red cross icon";
     });
-  message = "";
+
+  messageInput.value = "";
+  filter.style.visibility = "visible";
+  submit.disabled = true;
 }
 
 function closePopup() {
   popup.style.display = "none";
+
+  if (sideNav.style.borderRight !== "solid") {
+    filter.style.visibility = "hidden";
+  }
 }

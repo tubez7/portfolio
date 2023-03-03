@@ -31,10 +31,9 @@ body {
   position: absolute;
 } */
 
-/* #main {
-  height: 100vh;
-  margin-bottom: 10px;
-} */
+#main {
+  position: relative;
+}
 
 /* UNIVERSAL CSS RULES FOR THE SIDENAV & HEADER BLOCKS */
 
@@ -157,7 +156,7 @@ a:visited {
   border-color: blue;
 }
 
-#profile-image::after {
+#intro-block::after {
   content: "";
   clear: both;
   display: table;
@@ -176,6 +175,12 @@ a:visited {
   margin-bottom: 25px;
 }
 
+#background::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 #experience-list {
   float: right;
   border-style: solid;
@@ -186,12 +191,6 @@ a:visited {
   background-color: rgb(22, 3, 61);
   padding-right: 10px;
   border-radius: 5%;
-}
-
-#experience-list::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 #projectExpandButton {
@@ -281,7 +280,7 @@ a:visited {
 
 #project-expand-card {
   visibility: hidden;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -293,7 +292,7 @@ a:visited {
   padding: 10px;
 }
 
-#project-expand-card::after {
+#project-info::after {
   content: "";
   clear: both;
   display: table;
@@ -309,6 +308,10 @@ a:visited {
   border-color: blue;
 }
 
+/* #project-description {
+  clear: right;
+} */
+
 #project-expand-card > * {
   visibility: hidden;
 }
@@ -316,7 +319,6 @@ a:visited {
 #project-close-button {
   display: block;
   text-align: center;
-  clear: left;
 }
 
 /* CONTACT PAGE */
@@ -329,6 +331,12 @@ fieldset {
 #form-block {
   max-width: 800px;
   margin: auto;
+}
+
+#form-block::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 #contact-form {
@@ -438,6 +446,7 @@ button:enabled:active {
 
 #email-response-popup {
   display: none;
+  z-index:2;
   position: absolute;
   text-align: center;
   width: 260px;
@@ -454,5 +463,16 @@ button:enabled:active {
 }
 
 #email-response-popup p {
-  text-align: left;
+  text-align: center;
+}
+
+#response-header {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#email-response-icon {
+  max-width: 36px;
+  margin-left: 10px;
 }
