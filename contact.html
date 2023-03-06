@@ -40,24 +40,21 @@
       <nav id="header-nav-block">
         <span id="hamburger" onclick="openNav()">&#9776; navigation</span>
       </nav>
-      <header id="contact-header">
-        <h1 class="headers">Contact</h1>
-      </header>
       <div id="email-response-popup">
         <span id="response-header">
           <h3 id="email-response-header">Response Header</h3>
           <img
-            src=""
-            alt="icon"
-            id="email-response-icon"
+          src=""
+          alt="icon"
+          id="email-response-icon"
           />
         </span>
         <p id="response-msg">Test message</p>
         <a
-          href="javascript:void(0)"
-          id="popup-close-button"
-          onclick="closePopup()"
-          >Close &times;</a
+        href="javascript:void(0)"
+        id="popup-close-button"
+        onclick="closePopup()"
+        >Close &times;</a
         >
       </div>
       <div id="form-block">
@@ -74,11 +71,11 @@
               This is a required field. Please enter your name.
             </p>
             <input
-              type="text"
-              id="first-name"
-              name="first-name"
-              placeholder="Your name..."
-              oninput="setFirstName(event)"
+            type="text"
+            id="first-name"
+            name="first-name"
+            placeholder="Your name..."
+            oninput="setFirstName(event)"
             />
             <br />
             <label for="surname">Surname*</label>
@@ -87,11 +84,11 @@
               This is a required field. Please enter your surname.
             </p>
             <input
-              type="text"
-              id="surname"
-              name="surname"
-              placeholder="Your surname..."
-              oninput="setSurname(event)"
+            type="text"
+            id="surname"
+            name="surname"
+            placeholder="Your surname..."
+            oninput="setSurname(event)"
             />
             <br />
             <label for="email">Email (optional)</label>
@@ -101,11 +98,11 @@
               field blank
             </p>
             <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Your email address..."
-              oninput="setEmail(event)"
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email address..."
+            oninput="setEmail(event)"
             />
             <br />
             <label for="message-box">Your message*</label>
@@ -114,12 +111,12 @@
               This is a required field. Please enter your message.
             </p>
             <textarea
-              id="message-box"
-              name="contact"
-              form="contact"
-              placeholder="Your message..."
-              rows="8"
-              oninput="setMsg(event)"
+            id="message-box"
+            name="contact"
+            form="contact"
+            placeholder="Your message..."
+            rows="8"
+            oninput="setMsg(event)"
             ></textarea>
             <br />
             <button id="submit-button" onclick="handleSend(event)" disabled>
@@ -127,7 +124,10 @@
             </button>
           </fieldset>
         </form>
-        <h2>Contact me!</h2>
+
+        <header id="contact-header">
+          <h1>Contact</h1>
+        </header>
         <address>
           <p>
             email:
