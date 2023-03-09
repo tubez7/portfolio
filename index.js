@@ -38,9 +38,7 @@ function displayProjectsToggle() {
 const project = document.getElementById("project-expand-card");
 const projectCards = [...document.getElementsByClassName("project-cards")];
 
-// ADD CLICK EVENT TO THE PROJECT CARDS
-
-projectCards.forEach((card) => {
+projectCards.forEach((card) => { // ADD CLICK EVENT TO THE PROJECT CARDS
   card.addEventListener("click", (e) => {
     const parentDiv = e.currentTarget;
     showProjectCard(parentDiv);
@@ -104,14 +102,14 @@ function showProjectCard(parentDiv) {
   }
 
   project.style.visibility = "visible";
-  project.style.minWidth = "600px"; //will need to adapt for displays
-  project.style.maxWidth = "1000px";
+  project.style.minWidth = "240px"; //will need to adapt for displays
+  project.style.maxWidth = "550px";
   project.style.height = "auto";
   project.style.transition = "0.4s";
   project.style.borderStyle = "solid";
   project.style.borderColor = "blue";
   // project.style.borderRadius = "40px 10px";
-  project.style.borderRadius = "10px 40px";
+  project.style.borderRadius = "40px";
   project.style.animation = "drop";
   project.style.animationDuration = "0.4s";
   filter.style.visibility = "visible";
