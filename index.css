@@ -512,6 +512,14 @@ button:enabled:active {
   background-color: rgb(22, 3, 61);
 }
 
+#emailjs-image {
+  background-color: white;
+}
+
+#icon-image {
+  background-color: black;
+}
+
 #links-block :nth-child(even).link-box {
   /* border-radius: 10% 15% / 25%; */
   border-radius: 15px 60px;
