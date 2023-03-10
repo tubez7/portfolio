@@ -3,23 +3,31 @@ const main = document.getElementById("main");
 const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
 
+
 function openNav() {
+  const x = window.matchMedia("(orientation: landscape)");
   sideNav.style.width = "250px";
   sideNav.style.borderRight = "solid";
-  main.style.marginLeft = "250px";
-  main.style.transition = "margin-left 0.5s";
   hamburger.style.visibility = "hidden";
   filter.style.visibility = "visible";
+
+  if (x.matches) {
+    main.style.marginLeft = "250px";
+    main.style.transition = "margin-left 0.5s";
+  }
 }
 
 function closeNav() {
   sideNav.style.width = "0";
   sideNav.style.borderRight = "none";
-  main.style.marginLeft = "0px";
-  main.style.transition = "margin-left 0.5s";
   hamburger.style.visibility = "visible";
   filter.style.visibility = "hidden";
+
+  main.style.marginLeft = "0px";
+  main.style.transition = "margin-left 0.5s";
 }
+
+// FUNCTIONS SPECIFIC TO THE HOMEPAGE
 
 function displayProjectsToggle() {
   const projectList = document.getElementById("project-list");
@@ -38,7 +46,8 @@ function displayProjectsToggle() {
 const project = document.getElementById("project-expand-card");
 const projectCards = [...document.getElementsByClassName("project-cards")];
 
-projectCards.forEach((card) => { // ADD CLICK EVENT TO THE PROJECT CARDS
+projectCards.forEach((card) => {
+  // ADD CLICK EVENT TO THE PROJECT CARDS
   card.addEventListener("click", (e) => {
     const parentDiv = e.currentTarget;
     showProjectCard(parentDiv);
@@ -138,12 +147,7 @@ function closeProjectCard(clickedElement) {
 
   if (clickedElement === hamburger && project.style.visibility === "hidden") {
     // console.log("clicked hamburger with no filter");
-    sideNav.style.width = "250px";
-    sideNav.style.borderRight = "solid";
-    main.style.marginLeft = "250px";
-    main.style.transition = "margin-left 0.5s";
-    hamburger.style.visibility = "hidden";
-    filter.style.visibility = "visible";
+    openNav();
   } else if (filter.style.visibility === "visible") {
     // console.log("filter is visible");
     if (hamburger.style.visibility === "visible") {
@@ -262,7 +266,6 @@ function setMsg(e) {
 const submit = document.getElementById("submit-button");
 
 function disabled() {
-
   if (!validFirstName || !validSurname || !validMsg || !validEmail) {
     submit.disabled = true;
   } else {

@@ -12,7 +12,7 @@ body {
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 3;
   visibility: hidden;
   background-color: black;
   filter: alpha(opacity=70);
@@ -29,7 +29,7 @@ body {
   /* height: 100vh; */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 3; /* Stay on top */
+  z-index: 4; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: rgb(22, 3, 61);
@@ -335,7 +335,7 @@ a:visited {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2;
+  z-index: 3;
   border-style: solid;
   border-color: blue;
   background-color: rgb(22, 3, 61);
