@@ -74,7 +74,7 @@ function showProjectCard(parentDiv) {
     github.href = "https://github.com/tubez7/link-four-react";
     imageLink.href = url.href;
     description.innerText =
-      "This Progressive Web App was built as a personal learning project to practise and consolidate my knowledge of building apps in React, experiment with some new technologies, as well as practising UI/UX design principles and generally building upon my existing knowledge of JavaScript. I hope to incorporate a player versus AI mode, an online PvP mode, game animations, and increased user customisation options among several other features in future updates.";
+      "This Progressive Web App was built as a personal learning project to practise and consolidate my knowledge of building apps in React, experiment with some new technologies, as well as practising UI/UX design principles and generally building upon my existing knowledge of JavaScript. I hope to incorporate a player versus AI mode, an online PvP mode, in-game animations, and increased user customisation options among several other features in future updates.";
   } else if (title.innerHTML === "TREMOLO") {
     url.innerText = "tremolo-project.netlify.app";
     url.href = "https://tremolo-project.netlify.app";
@@ -105,7 +105,7 @@ function showProjectCard(parentDiv) {
   project.style.minWidth = "240px"; //will need to adapt for displays
   project.style.maxWidth = "550px";
   project.style.height = "auto";
-  project.style.transition = "0.4s";
+  // project.style.transition = "maxWidth 0.4s minWidth 0.4s";
   project.style.borderStyle = "solid";
   project.style.borderColor = "blue";
   // project.style.borderRadius = "40px 10px";
@@ -127,8 +127,8 @@ function closeProjectCard(clickedElement) {
   ];
   project.style.visibility = "hidden";
   // project.style.maxWidth = "0";
-  project.style.minWidth = "0";
-  project.style.height = "0";
+  // project.style.minWidth = "0";
+  // project.style.height = "0";
   project.style.transition = "0.4s";
   project.style.animation = "lift";
   project.style.animationDuration = "0.5s";
