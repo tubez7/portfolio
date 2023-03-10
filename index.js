@@ -3,6 +3,16 @@ const main = document.getElementById("main");
 const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
 
+const reducedSpaceDisplay = window.matchMedia("screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 360px)");
+
+
+reducedSpaceDisplay.addEventListener("change", (e) => {
+  if (e.matches) {
+    hamburger.innerHTML = "&#9776;";
+  } else {
+    hamburger.innerHTML = "&#9776; navigation";
+  }
+});
 
 function openNav() {
   const x = window.matchMedia("(orientation: landscape)");
