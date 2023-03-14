@@ -1,19 +1,26 @@
-const sideNav = document.getElementById("mySidenav");
+// UNIVERSAL FUNCTIONS FOR THE ENTIRE SITE
+
+const sideNav = document.getElementById("sidenav");
 const main = document.getElementById("main");
 const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
 
-const reducedSpaceDisplay = window.matchMedia("screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 360px)");
+// SET HAMBURGER TEXT DYNAMICALLY VIA MEDIA QUERY
+const navBarDisplay = window.matchMedia("screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 360px)");
 
-
-reducedSpaceDisplay.addEventListener("change", (e) => {
-  if (e.matches) {
+function setNavText(x) {
+  if (x.matches) {
     hamburger.innerHTML = "&#9776;";
   } else {
     hamburger.innerHTML = "&#9776; navigation";
   }
-});
+}
 
+navBarDisplay.addEventListener("change", setNavText);
+
+setNavText(navBarDisplay);
+
+//  FUNCTIONS FOR OPENING AND CLOSING THE NAV BAR LINKS
 function openNav() {
   const x = window.matchMedia("(orientation: landscape)");
   sideNav.style.width = "250px";
@@ -23,7 +30,7 @@ function openNav() {
 
   if (x.matches) {
     main.style.marginLeft = "250px";
-    main.style.transition = "margin-left 0.5s";
+    main.style.transition = "margin-left 0.4s";
   }
 }
 
@@ -32,9 +39,8 @@ function closeNav() {
   sideNav.style.borderRight = "none";
   hamburger.style.visibility = "visible";
   filter.style.visibility = "hidden";
-
   main.style.marginLeft = "0px";
-  main.style.transition = "margin-left 0.5s";
+  main.style.transition = "margin-left 0.4s";
 }
 
 // FUNCTIONS SPECIFIC TO THE HOMEPAGE

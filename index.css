@@ -22,12 +22,28 @@ body {
   position: absolute;
 }
 
+#toplink-block {
+  text-align: center;
+  margin-top: 10px;
+}
+
+#main {
+  position: relative;
+}
+
+a {
+  color: aqua;
+}
+
+a:visited {
+  color: aquamarine;
+}
 
 /* SIDE NAV CSS */
-.sidenav {
+#sidenav {
   height: 100%; /*100% Full-height/*
   /* height: 100vh; */
-  width: 0; /* 0 width - change this with JavaScript */
+  width: 0; /* changes with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 4; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -36,13 +52,13 @@ body {
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-  border-right: none;
+  border-right: none; /*changes with JS*/
   border-color: #ababab;
   border-width: 3px;
 }
 
 /* NAV MENU LINKS */
-.sidenav a {
+#sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
@@ -51,18 +67,18 @@ body {
   transition: 0.3s;
 }
 
-.sidenav a:visited {
+#sidenav a:visited {
   color: #ababab;
 }
 
 @media (hover: hover) {
-  .sidenav a:hover {
+  #sidenav a:hover {
     color: #f1f1f1;
     font-size: 28px;
   }
 }
 
-.sidenav .closebtn {
+#sidenav #closebtn {
   position: absolute;
   top: 0;
   right: 25px;
@@ -71,16 +87,16 @@ body {
 }
 
 @media (hover: hover) {
-  .sidenav .closebtn:hover {
+  #sidenav #closebtn:hover {
     font-size: 38px;
   }
 }
 
 @media screen and (max-height: 450px) {
-  .sidenav {
+  #sidenav {
     padding-top: 15px;
   }
-  .sidenav a {
+  #sidenav a {
     font-size: 18px;
   }
 }
@@ -108,7 +124,7 @@ body {
   visibility: hidden;
 }
 
-@media (orientation: portrait) {
+@media screen and (orientation: portrait), screen and (orientation: landscape) and (max-width: 990px) {
   #header-nav-block {
     background-color: rgb(22, 3, 61);
     border-bottom-style: solid;
@@ -117,7 +133,7 @@ body {
   }
   
   #main {
-    padding-top: 40px;
+    padding-top: 60px;
   }
   
   header {
@@ -147,18 +163,6 @@ body {
   }
 }
 
-/* GENERIC CSS RULES */
-#main {
-  position: relative;
-}
-
-a {
-  color: aqua;
-}
-
-a:visited {
-  color: aquamarine;
-}
 
 /* --- CSS RULES FOR HOMEPAGE --- */
 
@@ -169,32 +173,46 @@ a:visited {
 
 #main-header {
   font-size: 2em;
-  margin-block-end: 0.5em;
-  /* text-align: center; */
 }
 
 #sub-header {
   margin-block-start: 0;
-}
-
-#toplink-block {
-  text-align: center;
-  margin-top: 10px;
+  text-align: left;
 }
 
 #profile-image {
+  display: block;
   float: left;
-  /* max-width: 220px; */
-  max-width: 33%;
+  max-width: 260px;
   height: auto;
-  margin-right: 10px;
+  margin: auto 10px auto auto;
   border-radius: 25% 10%;
   border-style: solid;
   border-color: blue;
 }
 
+@media screen and (max-width: 510px) {
+  #profile-image {
+    float: none;
+    margin: auto;
+  }
+
+  #sub-header {
+    margin-block-start: 0.83em;
+    clear: left;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 298px) {
+  #profile-image {
+    max-width: 240px;
+  }
+}
+
 #intro-block {
   display: flow-root;
+  margin-bottom: 10px;
 }
 
 #intro-block::after {
@@ -208,17 +226,15 @@ a:visited {
   display: flow-root;
 }
 
-#background-header {
-  /* float: left; */
-  text-align: justify;
-  /* clear: inline-start; */
-}
-
-
 #background::after {
   content: "";
   clear: both;
   display: table;
+}
+
+#background-header {
+  margin-block-start: 10px;
+  clear: left;
 }
 
 #experience-list {
@@ -226,11 +242,24 @@ a:visited {
   border-style: solid;
   border-color: blue;
   max-width: 400px;
+  margin-top: 10px;
   margin-left: 10px;
   margin-bottom: 10px;
   background-color: rgb(22, 3, 61);
   padding-right: 10px;
   border-radius: 5%;
+}
+
+@media screen and (max-width: 610px) {
+  #background-header {
+    clear: right;
+    margin-block-start: 0.83em;
+  }
+
+  #experience-list {
+    float: none;
+    margin: auto;
+  }
 }
 
 #exp-header {
