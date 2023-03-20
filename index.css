@@ -3,6 +3,7 @@
 body {
   background-color: rgb(28, 6, 77);
   color: white;
+  margin: 0;
   padding: 10px;
 }
 
@@ -29,6 +30,10 @@ body {
 
 #main {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 a {
@@ -290,8 +295,6 @@ a:visited {
 }
 
 #portfolio-header {
-  max-width: 560px;
-  margin: auto;
   text-align: center;
 }
 
@@ -413,9 +416,10 @@ fieldset {
   border-style: none;
 }
 
-#form-block {
+#form-block { /* write some CSS - flexbox - center for VH/display */ 
   max-width: 800px;
   margin: auto;
+  padding: 10px;
 }
 
 #form-block::after {
@@ -426,19 +430,15 @@ fieldset {
 
 #contact-form {
   float: left;
-  /* border-radius: 25% 10%; */
-  border-radius: 10% 25%;
-  margin-right: 10px;
+  border-radius: 60px 20px;
+  margin: auto 10px 10px auto; /* right & bottom */
+  margin-block-start: 0.67em;
   text-align: center;
   border-style: solid;
   border-color: blue;
-  /* border-width: 0.12em; */
   border-width: 3px;
   background-color: rgb(22, 3, 61);
-  min-width: 280px;
-  max-width: 280px;
-  /* margin: auto; */
-  margin-bottom: 10px;
+  width: 280px;
   /* animation-name: lift;
   animation-duration: 0.5s; */
 }
@@ -446,6 +446,29 @@ fieldset {
 /* #contact-form label {
   color: rgb(0, 255, 255);
 } */
+
+@media screen and (max-width: 620px), screen and (orientation: portrait) {
+  #contact-form {
+    float: none;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #form-block {
+    margin: 0;
+  }
+
+  #contact-form {
+    width: 240px;
+  }
+}
+
+@media screen and (orientation: portrait), screen and (orientation: landscape) and (max-width: 990px) {
+  #contact-form {
+    margin-block-start: 0;
+  }
+}
 
 button {
   background-color: rgb(119, 187, 247);
@@ -562,6 +585,10 @@ button:enabled:active {
   margin-left: 10px;
 }
 
+.contact-text {
+  font-size: larger;
+}
+
 /* --- CSS RULES FOR LINKS PAGE --- */
 
 #links-header {
@@ -635,6 +662,7 @@ button:enabled:active {
 
 #about-header {
   text-align: center;
+  font-size: 1.5em;
 }
 
 #about-me-block {

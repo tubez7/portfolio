@@ -6,7 +6,7 @@ const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
 
 // SET HAMBURGER TEXT DYNAMICALLY VIA MEDIA QUERY
-const navBarDisplay = window.matchMedia("screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 360px)");
+const navBarDisplay = window.matchMedia("screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 415px)");
 
 function setNavText(x) {
   if (x.matches) {
