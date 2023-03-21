@@ -182,7 +182,6 @@ a:visited {
 }
 
 #sub-header {
-  margin-block-start: 0;
   text-align: left;
 }
 
@@ -195,6 +194,7 @@ a:visited {
   border-radius: 60px 20px;
   border-style: solid;
   border-color: blue;
+  border-width: 2px;
 }
 
 @media screen and (max-width: 510px) {
@@ -204,7 +204,6 @@ a:visited {
   }
 
   #sub-header {
-    margin-block-start: 0.83em;
     clear: left;
     text-align: center;
   }
@@ -257,6 +256,7 @@ a:visited {
   background-color: rgb(22, 3, 61);
   padding-right: 10px;
   border-radius: 15px;
+  border-width: 2px;
 }
 
 @media screen and (max-width: 610px) {
@@ -462,7 +462,7 @@ fieldset {
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 320px) { /*fixes centreing prob on v.small displays */
   #form-block {
     margin: 0;
   }
@@ -668,17 +668,17 @@ button:enabled:active {
 
 /* --- CSS RULES FOR ABOUT PAGE --- */
 
-#about-header {
-  text-align: center;
-  font-size: 1.5em;
+#about-me-block {
+  max-width: 800px;
+  margin: auto;
 }
 
-#about-me-block {
-  /* border-style: solid; */
-  max-width: 800px;
-  padding-top: 0;
-  margin: auto;
-  padding: 10px;
+#about-header {
+  font-size: 3em;
+}
+
+#about-me-block p {
+  font-size: larger;
 }
 
 #about-me-block::after {
@@ -688,25 +688,69 @@ button:enabled:active {
 }
 
 #about-subheader {
-  /* margin-top: 0; */
-  margin-block-start: 0;
+  text-align: left;
 }
 
 #guitar-pic {
+  display: block;
   float: left;
-  width: 30%;
+  max-width: 260px;
+  height: auto;
   margin-right: 10px;
   border-style: solid;
   border-color: blue;
-  border-radius: 15% 5% 15% 5%;
-  /* border-width: 3px; */
+  border-radius: 45px 20px;
+  border-width: 2px;
 }
 
 #gig-poster {
+  display: block;
   float: right;
-  width: 30%;
+  max-width: 300px;
   margin-left: 10px;
   border-style: solid;
   border-color: blue;
-  border-width: 3px;
+  border-width: 2px;
+}
+
+#football-pic {
+  display: block;
+  max-width: 250px;
+  float: left;
+  margin-right: 10px;
+  border-style: solid;
+  border-color: blue;
+  border-width: 2px;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 510px) {
+  #about-subheader {
+    text-align: center;
+  }
+
+  #guitar-pic {
+    float: none;
+    margin: auto;
+  }
+
+  #gig-poster {
+    float: none;
+    margin: auto;
+  }
+
+  #football-pic {
+    float: none;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  #guitar-pic {
+    max-width: 240px;
+  }
+
+  #gig-poster {
+    max-width: 240px;
+  }
 }
