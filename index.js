@@ -6,7 +6,9 @@ const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
 
 // SET HAMBURGER TEXT DYNAMICALLY VIA MEDIA QUERY
-const navBarDisplay = window.matchMedia("screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 415px)");
+const navBarDisplay = window.matchMedia(
+  "screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 415px)"
+);
 
 function setNavText(x) {
   if (x.matches) {
@@ -320,8 +322,8 @@ function handleSend(e) {
     .catch(() => {
       popup.style.display = "block";
       responseHeader.innerText = "Error!";
-      emailResponse.innerText =
-        "Oh dear! There was a problem sending your message. Please try again later or contact me directly via email.";
+      emailResponse.innerHTML =
+        "Oh dear! There was a problem sending your message.<br/><br/>Please try again later or contact me directly via email.";
       icon.src = "./images/icons/icons8-cancel-48.png";
       icon.alt = "red cross icon";
     });
