@@ -42,22 +42,17 @@
     </nav>
 
     <div id="main">
-      
       <div id="email-response-popup">
         <span id="response-header">
           <h2 id="email-response-header">Response Header</h2>
-          <img
-          src=""
-          alt="icon"
-          id="email-response-icon"
-          />
+          <img src="" alt="icon" id="email-response-icon" />
         </span>
         <p id="response-msg">Test message</p>
         <a
-        href="javascript:void(0)"
-        id="popup-close-button"
-        onclick="closePopup()"
-        >Close &times;</a
+          href="javascript:void(0)"
+          id="popup-close-button"
+          onclick="closePopup()"
+          >Close &times;</a
         >
       </div>
 
@@ -79,11 +74,11 @@
               This is a required field. Please enter your name.
             </p>
             <input
-            type="text"
-            id="first-name"
-            name="first-name"
-            placeholder="Your name..."
-            oninput="setFirstName(event)"
+              type="text"
+              id="first-name"
+              name="first-name"
+              placeholder="Your name..."
+              oninput="setFirstName(event)"
             />
             <br />
             <label for="surname">Surname*</label>
@@ -92,11 +87,11 @@
               This is a required field. Please enter your surname.
             </p>
             <input
-            type="text"
-            id="surname"
-            name="surname"
-            placeholder="Your surname..."
-            oninput="setSurname(event)"
+              type="text"
+              id="surname"
+              name="surname"
+              placeholder="Your surname..."
+              oninput="setSurname(event)"
             />
             <br />
             <label for="email">Email (optional)</label>
@@ -106,11 +101,11 @@
               field blank
             </p>
             <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Your email address..."
-            oninput="setEmail(event)"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your email address..."
+              oninput="setEmail(event)"
             />
             <br />
             <label for="message-box">Your message*</label>
@@ -119,12 +114,12 @@
               This is a required field. Please enter your message.
             </p>
             <textarea
-            id="message-box"
-            name="contact"
-            form="contact"
-            placeholder="Your message..."
-            rows="8"
-            oninput="setMsg(event)"
+              id="message-box"
+              name="contact"
+              form="contact"
+              placeholder="Your message..."
+              rows="8"
+              oninput="setMsg(event)"
             ></textarea>
             <br />
             <button id="submit-button" onclick="handleSend(event)" disabled>
@@ -134,31 +129,36 @@
         </form>
 
         <div id="text-block">
+          <address>
+            <p class="contact-text">
+              email:
+              <a href="mailto:richardjblack7@gmail.com"
+                >richardjblack7@gmail.com</a
+              >
+              <br />CV:
+              <a href="./documents/webcv.pdf" download="richardjblack-cv"
+                >richardjblack-cv.pdf</a
+              >
+            </p>
+          </address>
 
-        <address>
           <p class="contact-text">
-            email:
-            <a href="mailto:richardjblack7@gmail.com"
-              >richardjblack7@gmail.com</a
-            >
-            <br>CV: <a href="./documents/webcv.pdf" download="richardjblack-cv">richardjblack-cv.pdf</a>
-          </p>          
-        </address>
-
-        <p class="contact-text">
-          If you wish to network with me across social media platforms (LinkedIn and Twitch), please visit the Links page which will take you directly to the platforms I use for my coding, music, and general media/content creation.
-        </p>
-        <p class="contact-text">
-          If you wish to contact me directly regarding any potential professional
-          enquiries please don't hesitate to reach out to me at the email address
-          provided. Alternatively, you can send me a message via the contact
-          form on this page but be sure to include your email address if you
-          require me to reply to you! Feedback on the site or any of my other
-          projects is very much appreciated. Anything that helps me to improve
-          my skills and the code that I write will be gratefully received, so
-          thank you in advance!
-        </p>
-      </div>
+            If you wish to network with me across social media platforms
+            (LinkedIn and Twitch), please visit the Links page which will take
+            you directly to the platforms I use for my coding, music, and
+            general media/content creation.
+          </p>
+          <p class="contact-text">
+            If you wish to contact me directly regarding any potential
+            professional enquiries please don't hesitate to reach out to me at
+            the email address provided. Alternatively, you can send me a message
+            via the contact form on this page but be sure to include your email
+            address if you require me to reply to you! Feedback on the site or
+            any of my other projects is very much appreciated. Anything that
+            helps me to improve my skills and the code that I write will be
+            gratefully received, so thank you in advance!
+          </p>
+        </div>
       </div>
     </div>
   </body>
