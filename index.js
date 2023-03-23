@@ -73,7 +73,6 @@ projectCards.forEach((card) => {
 });
 
 function showProjectCard(parentDiv) {
-  console.log(parentDiv, "parent div in show project");
   const title = document.getElementById("project-title");
   const url = document.getElementById("project-url");
   const github = document.getElementById("github-url");
@@ -86,13 +85,6 @@ function showProjectCard(parentDiv) {
 
   title.innerText = parentDiv.querySelector("h3").innerText.toUpperCase();
   image.src = parentDiv.querySelector("img").src;
-
-  console.log(
-    title.innerHTML,
-    "inner HTML of title",
-    title.innerText,
-    "inner text of title"
-  );
 
   if (title.innerHTML === "LINK-FOUR") {
     url.innerText = "link-four.netlify.app";
@@ -128,16 +120,9 @@ function showProjectCard(parentDiv) {
       "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising TDD incorporating the Jest library.";
   }
 
-  project.style.visibility = "visible";
-  project.style.minWidth = "240px"; //will need to adapt for displays
-  project.style.maxWidth = "550px";
-  project.style.height = "auto";
-  // project.style.transition = "maxWidth 0.4s minWidth 0.4s";
-  project.style.borderStyle = "solid";
-  project.style.borderColor = "blue";
-  // project.style.borderRadius = "40px 10px";
-  project.style.borderRadius = "40px";
   project.style.animation = "drop";
+  project.style.visibility = "visible";
+  project.style.height = "auto";
   project.style.animationDuration = "0.4s";
   filter.style.visibility = "visible";
   hamburger.style.visibility = "visible";
@@ -147,33 +132,25 @@ function showProjectCard(parentDiv) {
 }
 
 function closeProjectCard(clickedElement) {
-  // console.log("close project fired", clickedElement, " was clicked", "hamburger is clicked element = ", clickedElement === hamburger, "expand card is set to hidden = ", project.style.visibility === "hidden", "the shade filter is visible = ", filter.style.visibility === "visible", "hamburger is visible when clicked = ", hamburger.style.visibility === "visible");
-
   const childElems = [
     ...document.querySelectorAll("div#project-expand-card *"),
   ];
-  project.style.visibility = "hidden";
-  // project.style.maxWidth = "0";
-  // project.style.minWidth = "0";
-  // project.style.height = "0";
-  project.style.transition = "0.4s";
   project.style.animation = "lift";
-  project.style.animationDuration = "0.5s";
-  childElems.forEach((elem) => {
-    elem.style.visibility = "hidden";
-  });
+  project.style.animationDuration = "0.4s";
+
+  setTimeout(() => {
+    project.style.visibility = "hidden";
+    childElems.forEach((elem) => {
+      elem.style.visibility = "hidden";
+    });
+  }, 300);
 
   if (clickedElement === hamburger && project.style.visibility === "hidden") {
-    // console.log("clicked hamburger with no filter");
     openNav();
   } else if (filter.style.visibility === "visible") {
-    // console.log("filter is visible");
     if (hamburger.style.visibility === "visible") {
-      // console.log("clicked somewhere on page with filter visible hamburger covered");
       filter.style.visibility = "hidden";
     }
-  } else {
-    console.log("something weird and confusing happened");
   }
 }
 
