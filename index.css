@@ -111,7 +111,6 @@ a:visited {
 #header-nav-block {
   display: inline-flex;
   justify-content: space-between;
-  /* align-content: space-between; */
   align-items: center;
   background-color: rgb(28, 6, 77, 0);
   position: fixed;
@@ -604,17 +603,17 @@ button:enabled:active {
 
 #links-header {
   text-align: center;
+  font-size: 3em;
 }
 
 #links-block {
-  /* border-style: solid; */
   max-width: 800px;
-  margin: auto;
 }
 
-#links-block :nth-child(odd).link-box {
-  border-radius: 60px 15px;
-  background-color: rgb(22, 3, 61);
+@media screen and (max-width: 320px) { /*fixes centreing prob on v.small displays */
+  #links-block {
+    max-width: 280px;
+  }
 }
 
 #emailjs-image {
@@ -625,48 +624,82 @@ button:enabled:active {
   background-color: black;
 }
 
-#links-block :nth-child(even).link-box {
-  /* border-radius: 10% 15% / 25%; */
-  border-radius: 15px 60px;
+.link-box {
+  border-radius: 20px;
+}
+
+#links-block > :nth-child(odd).link-box {
+  background-color: rgb(22, 3, 61);
+}
+
+#links-block > :nth-child(even).link-box {
   background-color: rgb(119, 187, 247);
   color: rgb(22, 3, 61);
 }
 
-#links-block :nth-child(odd) > img {
-  width: 20%;
-  float: left;
+#links-block > :nth-child(odd) img {
+  display: block;
+  width: 150px;
+  height: 100%;
   margin: 10px;
-  border-radius: 25% 10%;
+  border-radius: 50px 20px;
+  object-fit: cover;
+  object-position: center;
 }
 
-#links-block :nth-child(even) > img {
-  width: 20%;
-  float: right;
+#links-block > :nth-child(even) img {
+  display: block;
+  width: 150px;
+  height: 100%;
   margin: 10px;
-  border-radius: 10% 25%;
+  border-radius: 20px 50px;
+  order: 1;
 }
 
-#links-block :nth-child(even) > a {
+#links-block > :nth-child(even) a {
   color: darkblue;
 }
 
+#links-block > :nth-child(even) a:visited {
+  color: rgb(141, 12, 227);
+}
+
 .link-box {
+  display: flex;
   border: solid;
   border-color: blue;
   padding: 10px;
   margin: 10px;
   max-width: 800px;
+  align-items: center;
 }
 
-.link-box::after {
-  content: "";
-  clear: both;
-  display: table;
+.link-box p, a {
+  font-size: larger;
+}
+
+.link-text {
+  display: block;
 }
 
 .link-image {
   border-style: solid;
   border-color: blue;
+}
+
+@media screen and (max-width: 680px) {
+  .link-box {
+    flex-direction: column;
+  }
+
+  #links-block > :nth-child(even) .link-text {
+    order: 1;
+  }
+
+  .link-title, .link-url {
+    display: block;
+    text-align: center;
+  }
 }
 
 /* --- CSS RULES FOR ABOUT PAGE --- */
