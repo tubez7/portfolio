@@ -117,7 +117,7 @@ function showProjectCard(parentDiv) {
     github.href = "https://github.com/tubez7/backend-nc-news";
     imageLink.href = url.href;
     description.innerText =
-      "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising TDD incorporating the Jest library.";
+      "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising full TDD incorporating the Jest library and Supertest.";
   }
 
   project.style.animation = "drop";
@@ -306,8 +306,10 @@ function handleSend(e) {
     });
 
   messageInput.value = "";
+  message = "";
   filter.style.visibility = "visible";
   submit.disabled = true;
+  validMsg = false;
 }
 
 function closePopup() {
