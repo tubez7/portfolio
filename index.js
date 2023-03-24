@@ -166,7 +166,9 @@ function selectFunction(e) {
     !safeElements.includes(clickedElement) ||
     clickedElement === closeBtn
   ) {
-    closeProjectCard();
+    if (sideNav.style.borderRight === "none") {
+      closeProjectCard();
+    }
   }
 }
 

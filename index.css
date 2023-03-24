@@ -393,7 +393,7 @@ a:visited {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
   z-index: 3;
   border-style: solid;
   border-color: rgb(150, 150, 251);
