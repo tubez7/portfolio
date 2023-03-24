@@ -81,7 +81,6 @@ function showProjectCard(parentDiv) {
   const childElems = [
     ...document.querySelectorAll("div#project-expand-card *"),
   ];
-  const imageLink = document.getElementById("image-link");
 
   title.innerText = parentDiv.querySelector("h3").innerText.toUpperCase();
   image.src = parentDiv.querySelector("img").src;
@@ -91,7 +90,6 @@ function showProjectCard(parentDiv) {
     url.href = "https://link-four.netlify.app";
     github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>link-four-react";
     github.href = "https://github.com/tubez7/link-four-react";
-    imageLink.href = url.href;
     description.innerText =
       "This Progressive Web App was built as a personal learning project to practise and consolidate my knowledge of building apps in React, experiment with some new technologies, as well as practising UI/UX design principles and generally building upon my existing knowledge of JavaScript. I hope to incorporate a player versus AI mode, an online PvP mode, in-game animations, and increased user customisation options among several other features in future updates.";
   } else if (title.innerHTML === "TREMOLO") {
@@ -99,7 +97,6 @@ function showProjectCard(parentDiv) {
     url.href = "https://tremolo-project.netlify.app";
     github.innerHTML = "https://github.com/<wbr/>Mrs-DJ/<wbr/>tremolo";
     github.href = "https://github.com/Mrs-DJ/tremolo";
-    imageLink.href = url.href;
     description.innerText =
       "For the Northcoders bootcamp final project phase, as part of a 5-person team I created an app that enables musicians to network via geolocation and post classified ads for collaborating with each other.  The front-end architecture was built using Svelte, hosted as a Progressive Web Application, and integrated with Firebase for the database and user authentication implementation.";
   } else if (title.innerHTML === "NEWS APP") {
@@ -107,7 +104,6 @@ function showProjectCard(parentDiv) {
     url.href = "https://richard-nc-news.netlify.app";
     github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>nc-news";
     github.href = "https://github.com/tubez7/nc-news";
-    imageLink.href = url.href;
     description.innerText =
       "For my Northcoders bootcamp frontend project, I built a mobile first designed front-end architecture in React that acts as a news app to serve news articles via integration with the back-end project News API. In addition to React the app was built utilising CSS, HTML5, and Material UI.";
   } else {
@@ -115,7 +111,6 @@ function showProjectCard(parentDiv) {
     url.href = "https://nc-news-api.cyclic.app/api";
     github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>backend-nc-news";
     github.href = "https://github.com/tubez7/backend-nc-news";
-    imageLink.href = url.href;
     description.innerText =
       "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising full TDD incorporating the Jest library and Supertest.";
   }
@@ -123,7 +118,7 @@ function showProjectCard(parentDiv) {
   project.style.animation = "drop";
   project.style.visibility = "visible";
   project.style.height = "auto";
-  project.style.animationDuration = "0.4s";
+  project.style.animationDuration = "0.3s";
   filter.style.visibility = "visible";
   hamburger.style.visibility = "visible";
   childElems.forEach((elem) => {
@@ -131,30 +126,30 @@ function showProjectCard(parentDiv) {
   });
 }
 
-function closeProjectCard(clickedElement) {
+function closeProjectCard() {
   const childElems = [
     ...document.querySelectorAll("div#project-expand-card *"),
   ];
+  const projectLinks = [...document.getElementsByClassName("project-links")];
+
   project.style.animation = "lift";
-  project.style.animationDuration = "0.4s";
+  project.style.animationDuration = "0.3s";
+  filter.style.visibility = "hidden";
+  projectLinks.forEach((link) => {
+    // fixes display bug
+    link.style.visibility = "hidden";
+  });
 
   setTimeout(() => {
-    project.style.visibility = "hidden";
+    // fixes display bug
     childElems.forEach((elem) => {
       elem.style.visibility = "hidden";
     });
-  }, 300);
-
-  if (clickedElement === hamburger && project.style.visibility === "hidden") {
-    openNav();
-  } else if (filter.style.visibility === "visible") {
-    if (hamburger.style.visibility === "visible") {
-      filter.style.visibility = "hidden";
-    }
-  }
+    project.style.visibility = "hidden";
+  }, 250);
 }
 
-function closeDisplay(e) {
+function selectFunction(e) {
   const cardsChildren = [...document.querySelectorAll("div.project-cards *")];
   const cardsLinks = projectCards.concat(cardsChildren);
   const projectChildren = [
@@ -165,8 +160,13 @@ function closeDisplay(e) {
   const closeBtn = document.getElementById("project-close-button");
   const clickedElement = e.target;
 
-  if (!safeElements.includes(clickedElement) || clickedElement === closeBtn) {
-    closeProjectCard(clickedElement);
+  if (clickedElement === hamburger) {
+    openNav();
+  } else if (
+    !safeElements.includes(clickedElement) ||
+    clickedElement === closeBtn
+  ) {
+    closeProjectCard();
   }
 }
 
