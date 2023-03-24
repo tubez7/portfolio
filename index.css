@@ -391,9 +391,9 @@ a:visited {
 #project-expand-card {
   visibility: hidden;
   position: absolute;
-  top: 10%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, -10%);
+  transform: translate(-50%, -50%);
   z-index: 3;
   border-style: solid;
   border-color: rgb(150, 150, 251);
