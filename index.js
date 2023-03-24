@@ -105,7 +105,7 @@ function showProjectCard(parentDiv) {
     github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>nc-news";
     github.href = "https://github.com/tubez7/nc-news";
     description.innerText =
-      "For my Northcoders bootcamp frontend project, I built a mobile first designed front-end architecture in React that acts as a news app to serve news articles via integration with the back-end project News API. In addition to React the app was built utilising CSS, HTML5, and Material UI.";
+      "For my Northcoders bootcamp frontend project, I built a mobile first designed front-end architecture in React that acts as a news app to serve news articles via integration with the back-end project News API. The app was built utilising NodeJS, CSS, HTML5, and Material UI.";
   } else {
     url.innerHTML = "nc-news-api.cyclic.app/<wbr/>api";
     url.href = "https://nc-news-api.cyclic.app/api";
@@ -136,12 +136,12 @@ function closeProjectCard() {
   project.style.animationDuration = "0.3s";
   filter.style.visibility = "hidden";
   projectLinks.forEach((link) => {
-    // fixes display bug
+    // fixes rendering display bug
     link.style.visibility = "hidden";
   });
 
   setTimeout(() => {
-    // fixes display bug
+    // fixes rendering display bug
     childElems.forEach((elem) => {
       elem.style.visibility = "hidden";
     });
