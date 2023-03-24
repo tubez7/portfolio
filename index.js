@@ -4,6 +4,7 @@ const sideNav = document.getElementById("sidenav");
 const main = document.getElementById("main");
 const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
+let navOpen = false;
 
 // SET HAMBURGER TEXT DYNAMICALLY VIA MEDIA QUERY
 const navBarDisplay = window.matchMedia(
@@ -29,6 +30,7 @@ function openNav() {
   sideNav.style.borderRight = "solid";
   hamburger.style.visibility = "hidden";
   filter.style.visibility = "visible";
+  navOpen = true;
 
   if (x.matches) {
     main.style.marginLeft = "250px";
@@ -43,6 +45,7 @@ function closeNav() {
   filter.style.visibility = "hidden";
   main.style.marginLeft = "0px";
   main.style.transition = "margin-left 0.4s";
+  navOpen = false;
 }
 
 // FUNCTIONS SPECIFIC TO THE HOMEPAGE
@@ -160,13 +163,18 @@ function selectFunction(e) {
   const closeBtn = document.getElementById("project-close-button");
   const clickedElement = e.target;
 
+  console.log(clickedElement);
+
   if (clickedElement === hamburger) {
+    console.log("hamburger clicked")
     openNav();
   } else if (
     !safeElements.includes(clickedElement) ||
     clickedElement === closeBtn
   ) {
-    if (sideNav.style.borderRight === "none") {
+    console.log("clicked element is close button or is not a safeElem")
+    console.log("side nav is closed", sideNav.style.borderRight === "none", sideNav.style.borderRight)
+    if (!navOpen) {
       closeProjectCard();
     }
   }
