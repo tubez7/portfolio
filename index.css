@@ -391,9 +391,9 @@ a:visited {
 #project-expand-card {
   visibility: hidden;
   position: fixed;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   z-index: 3;
   border-style: solid;
   border-color: rgb(150, 150, 251);
@@ -418,7 +418,7 @@ a:visited {
 #project-image {
   float: left;
   margin-right: 10px;
-  max-width: 175px;
+  max-width: 130px;
   border-radius: 25% 10%;
   border-style: solid;
   border-color: rgb(150, 150, 251);
@@ -442,6 +442,11 @@ a:visited {
 }
 
 @media not all and (orientation: portrait) and (max-height: 808px) {
+  #project-expand-card {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   #project-image {
     max-width: 195px;
   }
