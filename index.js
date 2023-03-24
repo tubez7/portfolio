@@ -91,28 +91,28 @@ function showProjectCard(parentDiv) {
   if (title.innerHTML === "LINK-FOUR") {
     url.innerText = "link-four.netlify.app";
     url.href = "https://link-four.netlify.app";
-    github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>link-four-react";
+    github.innerHTML = "github.com/<wbr/>tubez7/<wbr/>link-four-react";
     github.href = "https://github.com/tubez7/link-four-react";
     description.innerText =
       "This Progressive Web App was built as a personal learning project to practise and consolidate my knowledge of building apps in React, experiment with some new technologies, as well as practising UI/UX design principles and generally building upon my existing knowledge of JavaScript. I hope to incorporate a player versus AI mode, an online PvP mode, in-game animations, and increased user customisation options among several other features in future updates.";
   } else if (title.innerHTML === "TREMOLO") {
     url.innerText = "tremolo-project.netlify.app";
     url.href = "https://tremolo-project.netlify.app";
-    github.innerHTML = "https://github.com/<wbr/>Mrs-DJ/<wbr/>tremolo";
+    github.innerHTML = "github.com/<wbr/>Mrs-DJ/<wbr/>tremolo";
     github.href = "https://github.com/Mrs-DJ/tremolo";
     description.innerText =
       "For the Northcoders bootcamp final project phase, as part of a 5-person team I created an app that enables musicians to network via geolocation and post classified ads for collaborating with each other.  The front-end architecture was built using Svelte, hosted as a Progressive Web Application, and integrated with Firebase for the database and user authentication implementation.";
   } else if (title.innerHTML === "NEWS APP") {
     url.innerText = "richard-nc-news.netlify.app";
     url.href = "https://richard-nc-news.netlify.app";
-    github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>nc-news";
+    github.innerHTML = "github.com/<wbr/>tubez7/<wbr/>nc-news";
     github.href = "https://github.com/tubez7/nc-news";
     description.innerText =
       "For my Northcoders bootcamp frontend project, I built a mobile first designed front-end architecture in React that acts as a news app to serve news articles via integration with the back-end project News API. The app was built utilising NodeJS, CSS, HTML5, and Material UI.";
   } else {
     url.innerHTML = "nc-news-api.cyclic.app/<wbr/>api";
     url.href = "https://nc-news-api.cyclic.app/api";
-    github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>backend-nc-news";
+    github.innerHTML = "github.com/<wbr/>tubez7/<wbr/>backend-nc-news";
     github.href = "https://github.com/tubez7/backend-nc-news";
     description.innerText =
       "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising full TDD incorporating the Jest library and Supertest.";
@@ -163,17 +163,12 @@ function selectFunction(e) {
   const closeBtn = document.getElementById("project-close-button");
   const clickedElement = e.target;
 
-  console.log(clickedElement);
-
   if (clickedElement === hamburger) {
-    console.log("hamburger clicked")
     openNav();
   } else if (
     !safeElements.includes(clickedElement) ||
     clickedElement === closeBtn
   ) {
-    console.log("clicked element is close button or is not a safeElem")
-    console.log("side nav is closed", sideNav.style.borderRight === "none", sideNav.style.borderRight)
     if (!navOpen) {
       closeProjectCard();
     }
