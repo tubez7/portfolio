@@ -418,7 +418,7 @@ a:visited {
 #project-image {
   float: left;
   margin-right: 10px;
-  max-width: 195px;
+  max-width: 175px;
   border-radius: 25% 10%;
   border-style: solid;
   border-color: rgb(150, 150, 251);
@@ -442,6 +442,9 @@ a:visited {
 }
 
 @media not all and (orientation: portrait) and (max-height: 808px) {
+  #project-image {
+    max-width: 195px;
+  }
   #project-description {
     font-size: larger;
   }
