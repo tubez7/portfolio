@@ -123,6 +123,7 @@ function showProjectCard(parentDiv) {
   project.style.height = "auto";
   project.style.animationDuration = "0.3s";
   filter.style.display = "block";
+  filter.style.cursor = "pointer";
   hamburger.style.visibility = "visible";
   childElems.forEach((elem) => {
     elem.style.visibility = "visible";
@@ -144,6 +145,7 @@ function closeProjectCard() {
 
   if (!navOpen) {
     filter.style.display = "none";
+    filter.style.cursor = "auto";
   }
 
   setTimeout(() => {
@@ -294,6 +296,7 @@ function handleSend(e) {
   messageInput.value = "";
   message = "";
   filter.style.display = "block";
+  filter.style.cursor = "pointer";
   submit.disabled = true;
   validMsg = false;
 }
@@ -303,5 +306,6 @@ function closePopup() {
 
   if (!navOpen) {
     filter.style.display = "none";
+    filter.style.cursor = "auto";
   }
 }

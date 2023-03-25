@@ -25,10 +25,6 @@ body {
   opacity: 0.7;
 }
 
-* html #opaque-filter {
-  position: absolute;
-}
-
 #toplink-block {
   text-align: center;
   margin-top: 10px;
