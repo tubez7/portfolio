@@ -29,7 +29,7 @@ function openNav() {
   sideNav.style.width = "250px";
   sideNav.style.borderRight = "solid";
   hamburger.style.visibility = "hidden";
-  filter.style.visibility = "visible";
+  filter.style.display = "block";
   navOpen = true;
 
   if (x.matches) {
@@ -42,7 +42,7 @@ function closeNav() {
   sideNav.style.width = "0";
   sideNav.style.borderRight = "none";
   hamburger.style.visibility = "visible";
-  filter.style.visibility = "hidden";
+  filter.style.display = "none";
   main.style.marginLeft = "0px";
   main.style.transition = "margin-left 0.4s";
   navOpen = false;
@@ -122,7 +122,7 @@ function showProjectCard(parentDiv) {
   project.style.visibility = "visible";
   project.style.height = "auto";
   project.style.animationDuration = "0.3s";
-  filter.style.visibility = "visible";
+  filter.style.display = "block";
   hamburger.style.visibility = "visible";
   childElems.forEach((elem) => {
     elem.style.visibility = "visible";
@@ -143,7 +143,7 @@ function closeProjectCard() {
   });
 
   if (!navOpen) {
-    filter.style.visibility = "hidden";
+    filter.style.display = "none";
   }
 
   setTimeout(() => {
@@ -293,7 +293,7 @@ function handleSend(e) {
 
   messageInput.value = "";
   message = "";
-  filter.style.visibility = "visible";
+  filter.style.display = "block";
   submit.disabled = true;
   validMsg = false;
 }
@@ -302,6 +302,6 @@ function closePopup() {
   popup.style.display = "none";
 
   if (!navOpen) {
-    filter.style.visibility = "hidden";
+    filter.style.display = "none";
   }
 }
