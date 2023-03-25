@@ -43,7 +43,8 @@
     <meta name="theme-color" content="#ffffff" />
     <script src="./index.js" defer></script>
   </head>
-  <body onclick="selectFunction(event)">
+  
+  <body>
     <div id="sidenav">
       <a href="javascript:void(0)" id="closebtn" onclick="closeNav()"
         >&times;</a
@@ -55,10 +56,10 @@
       <a href="./contact.html">Contact</a>
     </div>
 
-    <div id="opaque-filter"></div>
+    <div id="opaque-filter" onclick="closeProjectCard()"></div>
 
     <nav id="header-nav-block">
-      <span id="hamburger">&#9776; navigation</span>
+      <span id="hamburger" onclick="openNav()">&#9776; navigation</span>
       <h1 class="portrait-header">Developer Portfolio</h1>
     </nav>
 
@@ -98,9 +99,10 @@
             <p id="project-description">Some descriptive text...</p>
           </div>
           <a
-            href="javascript:void(0)"
+          href="javascript:void(0)"
             id="project-close-button"
             class="project-links"
+            onclick="closeProjectCard()"
             >Close &times;</a
           >
         </div>

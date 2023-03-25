@@ -137,11 +137,14 @@ function closeProjectCard() {
 
   project.style.animation = "lift";
   project.style.animationDuration = "0.3s";
-  filter.style.visibility = "hidden";
   projectLinks.forEach((link) => {
     // fixes rendering display bug
     link.style.visibility = "hidden";
   });
+
+  if (!navOpen) {
+    filter.style.visibility = "hidden";
+  }
 
   setTimeout(() => {
     // fixes rendering display bug
@@ -150,29 +153,6 @@ function closeProjectCard() {
     });
     project.style.visibility = "hidden";
   }, 250);
-}
-
-function selectFunction(e) {
-  const cardsChildren = [...document.querySelectorAll("div.project-cards *")];
-  const cardsLinks = projectCards.concat(cardsChildren);
-  const projectChildren = [
-    ...document.querySelectorAll("#project-expand-card *"),
-  ];
-  const projectElements = [project, ...projectChildren];
-  const safeElements = cardsLinks.concat(projectElements);
-  const closeBtn = document.getElementById("project-close-button");
-  const clickedElement = e.target;
-
-  if (clickedElement === hamburger) {
-    openNav();
-  } else if (
-    !safeElements.includes(clickedElement) ||
-    clickedElement === closeBtn
-  ) {
-    if (!navOpen) {
-      closeProjectCard();
-    }
-  }
 }
 
 // CONTACT PAGE FUNCTIONS
@@ -321,7 +301,7 @@ function handleSend(e) {
 function closePopup() {
   popup.style.display = "none";
 
-  if (sideNav.style.borderRight !== "solid") {
+  if (!navOpen) {
     filter.style.visibility = "hidden";
   }
 }
