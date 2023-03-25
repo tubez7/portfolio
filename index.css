@@ -58,8 +58,8 @@ a:visited {
 
 /* SIDE NAV CSS */
 #sidenav {
-  height: 100%; /*100% Full-height/*
-  /* height: 100vh; */
+  /* height: 100%;  */
+  height: 100vh;
   width: 0; /* changes with JavaScript */
   position: fixed; /* Stay in place */
   z-index: 4; /* Stay on top */
