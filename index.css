@@ -307,7 +307,6 @@ a:visited {
 }
 
 #portfolio-grid {
-  position: relative;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   max-width: 560px;
