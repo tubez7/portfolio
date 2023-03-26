@@ -14,12 +14,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  /* width: 100%; */
-  /* height: 100%; */
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  /* width: 100vw;
+  height: 100vh; */
   z-index: 3;
-  /* visibility: hidden; */
   background-color: black;
   filter: alpha(opacity=70);
   opacity: 0.7;
@@ -46,17 +45,17 @@ a {
 }
 
 a:visited {
-  color: aqua
+  color: aqua;
 }
 
-@media (hover: hover) { 
+@media (hover: hover) {
   a:hover {
     text-decoration: underline;
     transition: 0.2s;
   }
 }
 
-/* SIDE NAV CSS */
+/* side nav menu CSS */
 #sidenav {
   height: 100vh;
   width: 0; /* changes with JavaScript */
@@ -73,7 +72,7 @@ a:visited {
   border-width: 3px;
 }
 
-/* NAV MENU LINKS */
+/* side nav menu links */
 #sidenav a {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
@@ -120,7 +119,7 @@ a:visited {
   }
 }
 
-/* NAV BAR CSS */
+/* nav bar block CSS */
 #header-nav-block {
   display: inline-flex;
   justify-content: space-between;
@@ -142,18 +141,20 @@ a:visited {
   visibility: hidden;
 }
 
-@media screen and (orientation: portrait), screen and (orientation: landscape) and (max-width: 990px) {
+/* mobile/tablet display nav bar block */
+@media screen and (orientation: portrait),
+  screen and (orientation: landscape) and (max-width: 990px) {
   #header-nav-block {
     background-color: rgb(22, 3, 61);
     border-bottom-style: solid;
     border-color: #ababab;
     color: #ababab;
   }
-  
+
   #main {
     padding-top: 60px;
   }
-  
+
   header {
     display: none;
   }
@@ -202,7 +203,7 @@ a:visited {
   height: auto;
   margin: auto 10px 0.95px auto; /* right & bottom */
   border-radius: 60px 20px;
-  border-style:inset;
+  border-style: inset;
   border-color: rgb(150, 150, 251);
   border-width: 2px;
 }
@@ -359,7 +360,8 @@ a:visited {
   border-color: rgb(150, 150, 251);
 }
 
-.project-cards:nth-child(2) img, .project-cards:nth-child(5) img {
+.project-cards:nth-child(2) img,
+.project-cards:nth-child(5) img {
   border-radius: 7.5% 30%;
 }
 
@@ -389,11 +391,11 @@ a:visited {
 }
 
 #project-expand-card {
-  visibility: hidden;
-  position: absolute;
+  display: none;
+  position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -40%);
+  transform: translate(-50%, -50%);
   z-index: 3;
   border-style: solid;
   border-color: rgb(150, 150, 251);
@@ -418,14 +420,25 @@ a:visited {
 #project-image {
   float: left;
   margin-right: 10px;
-  max-width: 130px;
+  max-width: 195px;
   border-radius: 25% 10%;
   border-style: solid;
   border-color: rgb(150, 150, 251);
   border-width: 0.5px;
 }
 
-@media screen and (orientation: landscape) and (max-width: 800px), screen and (orientation: portrait) and (max-width: 940px) {
+#project-description {
+  font-size: larger;
+}
+
+#project-close-button {
+  display: block;
+  text-align: center;
+}
+
+/* change layout for narrower displays */
+@media screen and (orientation: landscape) and (max-width: 800px),
+  screen and (orientation: portrait) and (max-width: 940px) {
   #project-expand-card {
     padding-top: 20px;
   }
@@ -441,24 +454,21 @@ a:visited {
   }
 }
 
-@media not all and (orientation: portrait) and (max-height: 808px) {
+/* ensures full content of pop-up is scrollable & not cut-off on smaller displays */
+@media screen and (orientation: portrait) and (max-height: 808px),
+  screen and (orientation: portrait) and (max-width: 579px) {
   #project-expand-card {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    transform: translate(-50%, -40%);
   }
-  #project-image {
-    max-width: 195px;
-  }
-  #project-description {
-    font-size: larger;
-  }
-}
 
-#project-close-button {
-  display: block;
-  text-align: center;
+  #project-image {
+    max-width: 130px;
+  }
+
+  #project-description {
+    font-size: 1em;
+  }
 }
 
 /* --- CSS RULES FOR CONTACT PAGE --- */
@@ -469,12 +479,12 @@ a:visited {
   margin-block-end: 0.83em;
 }
 
+/* remove default border of the element */
 fieldset {
-  /* REMOVES DEFAULT BORDER OF FIELDSET ELEMENT */
   border-style: none;
 }
 
-#form-block {  
+#form-block {
   max-width: 800px;
   margin: auto;
 }
@@ -508,7 +518,8 @@ fieldset {
   }
 }
 
-@media screen and (max-width: 320px) { /*fixes centreing prob on v.small displays */
+/*fixes centreing prob on v.small displays */
+@media screen and (max-width: 320px) {
   #form-block {
     margin: 0;
   }
@@ -518,7 +529,8 @@ fieldset {
   }
 }
 
-@media screen and (orientation: portrait), screen and (orientation: landscape) and (max-width: 990px) {
+@media screen and (orientation: portrait),
+  screen and (orientation: landscape) and (max-width: 990px) {
   #contact-form {
     margin-block-start: 0;
   }
@@ -660,7 +672,8 @@ button:enabled:active {
   max-width: 800px;
 }
 
-@media screen and (max-width: 320px) { /*fixes centreing prob on v.small displays */
+/*fixes centreing prob on v.small displays */
+@media screen and (max-width: 320px) {
   #links-block {
     max-width: 280px;
   }
@@ -683,7 +696,7 @@ button:enabled:active {
 }
 
 #links-block > :nth-child(even).link-box {
-  background-color:rgb(150, 150, 251);
+  background-color: rgb(150, 150, 251);
   color: rgb(22, 3, 61);
   border-color: rgb(22, 3, 61);
 }

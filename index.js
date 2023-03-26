@@ -6,7 +6,7 @@ const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
 let navOpen = false;
 
-// SET HAMBURGER TEXT DYNAMICALLY VIA MEDIA QUERY
+// set hamburger text dynamically with media query
 const navBarDisplay = window.matchMedia(
   "screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 415px)"
 );
@@ -23,7 +23,7 @@ navBarDisplay.addEventListener("change", setNavText);
 
 setNavText(navBarDisplay);
 
-//  FUNCTIONS FOR OPENING AND CLOSING THE NAV BAR LINKS
+// functions for the nav bar navigation menu
 function openNav() {
   const x = window.matchMedia("(orientation: landscape)");
   sideNav.style.width = "250px";
@@ -48,7 +48,7 @@ function closeNav() {
   navOpen = false;
 }
 
-// FUNCTIONS SPECIFIC TO THE HOMEPAGE
+// HOMEPAGE FUNCTIONS
 
 function displayProjectsToggle() {
   const projectList = document.getElementById("project-list");
@@ -62,13 +62,13 @@ function displayProjectsToggle() {
   }
 }
 
-// FUNCTIONS SPECIFIC TO THE PORTFOLIO PAGE
+// PORTFOLIO PAGE FUNCTIONS
 
 const project = document.getElementById("project-expand-card");
 const projectCards = [...document.getElementsByClassName("project-cards")];
 
+// adds click event to all project cards
 projectCards.forEach((card) => {
-  // ADD CLICK EVENT TO THE PROJECT CARDS
   card.addEventListener("click", (e) => {
     const parentDiv = e.currentTarget;
     showProjectCard(parentDiv);
@@ -119,7 +119,7 @@ function showProjectCard(parentDiv) {
   }
 
   project.style.animation = "drop";
-  project.style.visibility = "visible";
+  project.style.display = "block";
   project.style.height = "auto";
   project.style.animationDuration = "0.3s";
   filter.style.display = "block";
@@ -136,10 +136,19 @@ function closeProjectCard() {
   ];
   const projectLinks = [...document.getElementsByClassName("project-links")];
 
-  project.style.animation = "lift";
-  project.style.animationDuration = "0.3s";
+  const wideDisplay = window.matchMedia(
+    "screen and (orientation: portrait) and (max-height: 808px), screen and (orientation: portrait) and (max-width: 579px)"
+  );
+
+  if (!wideDisplay.matches) {
+    project.style.animation = "lift";
+    project.style.animationDuration = "0.3s";
+  } else {
+    project.style.display = "none";
+  }
+
+  // fixes rendering display bug
   projectLinks.forEach((link) => {
-    // fixes rendering display bug
     link.style.visibility = "hidden";
   });
 
@@ -148,12 +157,12 @@ function closeProjectCard() {
     filter.style.cursor = "auto";
   }
 
+  // fixes rendering display bug
   setTimeout(() => {
-    // fixes rendering display bug
     childElems.forEach((elem) => {
       elem.style.visibility = "hidden";
     });
-    project.style.visibility = "hidden";
+    project.style.display = "none";
   }, 250);
 }
 
