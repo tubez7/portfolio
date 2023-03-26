@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Portfolio site for Richard John Black, a Junior Software Developer from Birmingham, UK."
+      content="Developer Portfolio for Richard John Black, a Junior Software Developer from Birmingham, UK."
     />
     <title>Portfolio</title>
     <link rel="stylesheet" href="index.css" />
@@ -43,7 +43,8 @@
     <meta name="theme-color" content="#ffffff" />
     <script src="./index.js" defer></script>
   </head>
-  <body onclick="selectFunction(event)">
+
+  <body>
     <div id="sidenav">
       <a href="javascript:void(0)" id="closebtn" onclick="closeNav()"
         >&times;</a
@@ -55,11 +56,11 @@
       <a href="./contact.html">Contact</a>
     </div>
 
-    <div id="opaque-filter"></div>
+    <div id="opaque-filter" onclick="closeProjectCard()"></div>
 
     <nav id="header-nav-block">
-      <span id="hamburger">&#9776; navigation</span>
-      <h1 class="portrait-header">Developer Portfolio</h1>
+      <span id="hamburger" onclick="openNav()">&#9776; navigation</span>
+      <h1 id="portrait-header">Developer Portfolio</h1>
     </nav>
 
     <div id="main">
@@ -98,9 +99,10 @@
             <p id="project-description">Some descriptive text...</p>
           </div>
           <a
-            href="javascript:void(0)"
+          href="javascript:void(0)"
             id="project-close-button"
             class="project-links"
+            onclick="closeProjectCard()"
             >Close &times;</a
           >
         </div>

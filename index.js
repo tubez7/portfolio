@@ -4,8 +4,9 @@ const sideNav = document.getElementById("sidenav");
 const main = document.getElementById("main");
 const hamburger = document.getElementById("hamburger");
 const filter = document.getElementById("opaque-filter");
+let navOpen = false;
 
-// SET HAMBURGER TEXT DYNAMICALLY VIA MEDIA QUERY
+// set hamburger text dynamically with media query
 const navBarDisplay = window.matchMedia(
   "screen and (orientation: landscape) and (max-width: 1270px), screen and (orientation: portrait) and (max-width: 415px)"
 );
@@ -22,13 +23,14 @@ navBarDisplay.addEventListener("change", setNavText);
 
 setNavText(navBarDisplay);
 
-//  FUNCTIONS FOR OPENING AND CLOSING THE NAV BAR LINKS
+// functions for the nav bar navigation menu
 function openNav() {
   const x = window.matchMedia("(orientation: landscape)");
   sideNav.style.width = "250px";
   sideNav.style.borderRight = "solid";
   hamburger.style.visibility = "hidden";
-  filter.style.visibility = "visible";
+  filter.style.display = "block";
+  navOpen = true;
 
   if (x.matches) {
     main.style.marginLeft = "250px";
@@ -40,12 +42,13 @@ function closeNav() {
   sideNav.style.width = "0";
   sideNav.style.borderRight = "none";
   hamburger.style.visibility = "visible";
-  filter.style.visibility = "hidden";
+  filter.style.display = "none";
   main.style.marginLeft = "0px";
   main.style.transition = "margin-left 0.4s";
+  navOpen = false;
 }
 
-// FUNCTIONS SPECIFIC TO THE HOMEPAGE
+// HOMEPAGE FUNCTIONS
 
 function displayProjectsToggle() {
   const projectList = document.getElementById("project-list");
@@ -59,13 +62,13 @@ function displayProjectsToggle() {
   }
 }
 
-// FUNCTIONS SPECIFIC TO THE PORTFOLIO PAGE
+// PORTFOLIO PAGE FUNCTIONS
 
 const project = document.getElementById("project-expand-card");
 const projectCards = [...document.getElementsByClassName("project-cards")];
 
+// adds click event to all project cards
 projectCards.forEach((card) => {
-  // ADD CLICK EVENT TO THE PROJECT CARDS
   card.addEventListener("click", (e) => {
     const parentDiv = e.currentTarget;
     showProjectCard(parentDiv);
@@ -88,38 +91,39 @@ function showProjectCard(parentDiv) {
   if (title.innerHTML === "LINK-FOUR") {
     url.innerText = "link-four.netlify.app";
     url.href = "https://link-four.netlify.app";
-    github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>link-four-react";
+    github.innerHTML = "github.com/<wbr/>tubez7/<wbr/>link-four-react";
     github.href = "https://github.com/tubez7/link-four-react";
     description.innerText =
       "This Progressive Web App was built as a personal learning project to practise and consolidate my knowledge of building apps in React, experiment with some new technologies, as well as practising UI/UX design principles and generally building upon my existing knowledge of JavaScript. I hope to incorporate a player versus AI mode, an online PvP mode, in-game animations, and increased user customisation options among several other features in future updates.";
   } else if (title.innerHTML === "TREMOLO") {
     url.innerText = "tremolo-project.netlify.app";
     url.href = "https://tremolo-project.netlify.app";
-    github.innerHTML = "https://github.com/<wbr/>Mrs-DJ/<wbr/>tremolo";
+    github.innerHTML = "github.com/<wbr/>Mrs-DJ/<wbr/>tremolo";
     github.href = "https://github.com/Mrs-DJ/tremolo";
     description.innerText =
       "For the Northcoders bootcamp final project phase, as part of a 5-person team I created an app that enables musicians to network via geolocation and post classified ads for collaborating with each other.  The front-end architecture was built using Svelte, hosted as a Progressive Web Application, and integrated with Firebase for the database and user authentication implementation.";
   } else if (title.innerHTML === "NEWS APP") {
     url.innerText = "richard-nc-news.netlify.app";
     url.href = "https://richard-nc-news.netlify.app";
-    github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>nc-news";
+    github.innerHTML = "github.com/<wbr/>tubez7/<wbr/>nc-news";
     github.href = "https://github.com/tubez7/nc-news";
     description.innerText =
       "For my Northcoders bootcamp frontend project, I built a mobile first designed front-end architecture in React that acts as a news app to serve news articles via integration with the back-end project News API. The app was built utilising NodeJS, CSS, HTML5, and Material UI.";
   } else {
     url.innerHTML = "nc-news-api.cyclic.app/<wbr/>api";
     url.href = "https://nc-news-api.cyclic.app/api";
-    github.innerHTML = "https://github.com/<wbr/>tubez7/<wbr/>backend-nc-news";
+    github.innerHTML = "github.com/<wbr/>tubez7/<wbr/>backend-nc-news";
     github.href = "https://github.com/tubez7/backend-nc-news";
     description.innerText =
       "For my Northcoders bootcamp backend project, I built a RESTful API to interact with a PostgreSQL database, incorporating MVC programming principles in order to provide data to the front-end news app project. Built with Express utilising full TDD incorporating the Jest library and Supertest.";
   }
 
   project.style.animation = "drop";
-  project.style.visibility = "visible";
+  project.style.display = "block";
   project.style.height = "auto";
   project.style.animationDuration = "0.3s";
-  filter.style.visibility = "visible";
+  filter.style.display = "block";
+  filter.style.cursor = "pointer";
   hamburger.style.visibility = "visible";
   childElems.forEach((elem) => {
     elem.style.visibility = "visible";
@@ -132,42 +136,34 @@ function closeProjectCard() {
   ];
   const projectLinks = [...document.getElementsByClassName("project-links")];
 
-  project.style.animation = "lift";
-  project.style.animationDuration = "0.3s";
-  filter.style.visibility = "hidden";
+  const wideDisplay = window.matchMedia(
+    "screen and (orientation: portrait) and (max-height: 808px), screen and (orientation: portrait) and (max-width: 579px)"
+  );
+
+  if (!wideDisplay.matches) {
+    project.style.animation = "lift";
+    project.style.animationDuration = "0.3s";
+  } else {
+    project.style.display = "none";
+  }
+
+  // fixes rendering display bug
   projectLinks.forEach((link) => {
-    // fixes rendering display bug
     link.style.visibility = "hidden";
   });
 
+  if (!navOpen) {
+    filter.style.display = "none";
+    filter.style.cursor = "auto";
+  }
+
+  // fixes rendering display bug
   setTimeout(() => {
-    // fixes rendering display bug
     childElems.forEach((elem) => {
       elem.style.visibility = "hidden";
     });
-    project.style.visibility = "hidden";
+    project.style.display = "none";
   }, 250);
-}
-
-function selectFunction(e) {
-  const cardsChildren = [...document.querySelectorAll("div.project-cards *")];
-  const cardsLinks = projectCards.concat(cardsChildren);
-  const projectChildren = [
-    ...document.querySelectorAll("#project-expand-card *"),
-  ];
-  const projectElements = [project, ...projectChildren];
-  const safeElements = cardsLinks.concat(projectElements);
-  const closeBtn = document.getElementById("project-close-button");
-  const clickedElement = e.target;
-
-  if (clickedElement === hamburger) {
-    openNav();
-  } else if (
-    !safeElements.includes(clickedElement) ||
-    clickedElement === closeBtn
-  ) {
-    closeProjectCard();
-  }
 }
 
 // CONTACT PAGE FUNCTIONS
@@ -258,6 +254,7 @@ function setMsg(e) {
 
   disabled();
 }
+
 const submit = document.getElementById("submit-button");
 
 function disabled() {
@@ -307,7 +304,8 @@ function handleSend(e) {
 
   messageInput.value = "";
   message = "";
-  filter.style.visibility = "visible";
+  filter.style.display = "block";
+  filter.style.cursor = "pointer";
   submit.disabled = true;
   validMsg = false;
 }
@@ -315,7 +313,8 @@ function handleSend(e) {
 function closePopup() {
   popup.style.display = "none";
 
-  if (sideNav.style.borderRight !== "solid") {
-    filter.style.visibility = "hidden";
+  if (!navOpen) {
+    filter.style.display = "none";
+    filter.style.cursor = "auto";
   }
 }
