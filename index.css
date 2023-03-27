@@ -5,6 +5,7 @@ body {
   color: white;
   margin: 0;
   padding: 10px;
+  font-family: "Times New Roman", Times, serif;
 }
 
 #opaque-filter {
@@ -701,8 +702,7 @@ button:enabled:active {
 
 #links-block > :nth-child(odd) img {
   display: block;
-  min-width: 150px;
-  max-width: 150px;
+  width: 150px;
   height: 150px;
   margin: 10px;
   border-radius: 50px 20px;
@@ -710,8 +710,7 @@ button:enabled:active {
 
 #links-block > :nth-child(even) img {
   display: block;
-  min-width: 150px;
-  max-width: 150px;
+  width: 150px;
   height: 150px;
   margin: 10px;
   border-radius: 20px 50px;
