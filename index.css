@@ -535,7 +535,7 @@ fieldset {
   }
 }
 
-button {
+#submit-button {
   background-color: rgb(119, 187, 247);
   border-color: rgb(150, 150, 251);
   border-radius: 8px;
@@ -545,23 +545,23 @@ button {
   transition: 0.2s;
 }
 
-button:disabled {
+#submit-button:disabled {
   opacity: 0.2;
 }
 
 @media (hover: hover) {
-  button:enabled:hover {
+  #submit-button:enabled:hover {
     transform: scale(1.1);
     transition: 0.2s;
   }
 }
 
-button:enabled:active {
+#submit-button:enabled:active {
   transform: translateY(4px);
   transition: 0.2s;
 }
 
-#contact-form input {
+#contact-form input:not([type="submit"]) {
   border-color: rgb(150, 150, 251);
   background-color: rgb(119, 187, 247);
   color: rgb(22, 3, 61);

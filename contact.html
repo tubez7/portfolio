@@ -93,7 +93,7 @@
           <h1 id="contact-header">Contact</h1>
         </header>
 
-        <form id="contact-form">
+        <form id="contact-form" onsubmit="handleSend(event)">
           <fieldset>
             <p>
               Send me a message
@@ -154,9 +154,7 @@
               oninput="setMsg(event)"
             ></textarea>
             <br />
-            <button id="submit-button" onclick="handleSend(event)" disabled>
-              Send
-            </button>
+            <input type="submit" value="Send" aria-label="submit button" id="submit-button" disabled>
           </fieldset>
         </form>
 
